@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "418892003647",
+    "project_id": "friedsgramkod-dev",
+    "storage_bucket": "friedsgramkod-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:418892003647:android:df07babdbed69f752afb8a",
+        "android_client_info": {
+          "package_name": "com.example.friedsgramkoddev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "418892003647-3rv1f97k9v5h4altjfpdd6bou6ur6bub.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPfQlfJjaTVjQQOplzRl-3jXjkRefByp8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "418892003647-3rv1f97k9v5h4altjfpdd6bou6ur6bub.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
