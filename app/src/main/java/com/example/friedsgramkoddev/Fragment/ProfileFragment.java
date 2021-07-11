@@ -2,6 +2,7 @@ package com.example.friedsgramkoddev.Fragment;
 
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -21,6 +22,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.friedsgramkoddev.Adapter.MyFotoAdapter;
+import com.example.friedsgramkoddev.EditProfileActivity;
 import com.example.friedsgramkoddev.Model.Post;
 import com.example.friedsgramkoddev.Model.User;
 import com.example.friedsgramkoddev.R;
@@ -118,7 +120,7 @@ public class ProfileFragment extends Fragment {
                 String btn = edit_profile.getText().toString();
 
                 if (btn.equals("Edit Profile")) {
-                    //
+                    startActivity(new Intent(getContext(), EditProfileActivity.class));
                 } else if (btn.equals("follow")) {
                     FirebaseDatabase.getInstance().getReference().child("Follow").child(firebaseUser.getUid())
                             .child("following").child(profileid).setValue(true);
