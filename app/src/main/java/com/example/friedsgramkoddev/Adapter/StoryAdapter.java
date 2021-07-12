@@ -1,6 +1,9 @@
 package com.example.friedsgramkoddev.Adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.friedsgramkoddev.AddStoryActivity;
 import com.example.friedsgramkoddev.Model.Story;
 import com.example.friedsgramkoddev.Model.User;
 import com.example.friedsgramkoddev.R;
@@ -133,7 +137,29 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder>{
                 }
 
                 if (click) {
-                    //TODO: show alert dialog
+                    if (count > 0) {
+                        AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                        alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "View story",
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        //TODO go to story
+                                    }
+                                });
+                        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Add story",
+                                new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        Intent intent = new Intent(mContext, AddStoryActivity.class);
+                                        mContext.startActivity(intent);
+                                        dialog.dismiss();
+                                    }
+                                });
+                        alertDialog.show();
+                    } else {
+                        Intent intent = new Intent(mContext, AddStoryActivity.class);
+                        mContext.startActivity(intent);
+                    }
                 } else {
                     if (count > 0) {
                         textView.setText("My Story");
