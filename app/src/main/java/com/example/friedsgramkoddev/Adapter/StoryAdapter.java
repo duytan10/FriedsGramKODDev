@@ -18,6 +18,7 @@ import com.example.friedsgramkoddev.AddStoryActivity;
 import com.example.friedsgramkoddev.Model.Story;
 import com.example.friedsgramkoddev.Model.User;
 import com.example.friedsgramkoddev.R;
+import com.example.friedsgramkoddev.StoryActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -67,7 +68,9 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder>{
                 if (holder.getAdapterPosition() == 0)
                     myStory(holder.addstory_text, holder.story_plus, true);
                 else {
-                    //TODO: go to story
+                    Intent intent = new Intent(mContext, StoryActivity.class);
+                    intent.putExtra("userid", story.getUserid());
+                    mContext.startActivity(intent);
                 }
             }
         });
@@ -143,7 +146,10 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder>{
                                 new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
-                                        //TODO go to story
+                                        Intent intent = new Intent(mContext, StoryActivity.class);
+                                        intent.putExtra("userid", FirebaseAuth.getInstance().getCurrentUser().getUid());
+                                        mContext.startActivity(intent);
+                                        dialog.dismiss();
                                     }
                                 });
                         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Add story",
